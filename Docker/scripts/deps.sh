@@ -1,6 +1,6 @@
 #!/bin/bash
 echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
-sudo apt-get update && sudo apt-get install -y \
+apt-get update && apt-get install -y \
     cmake \
     coreutils \
     gcc \
