@@ -12,7 +12,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
       - name: DockerHub login
-        run: echo '${{ secrets.DOCKERHUB_PASSWORD }}' | docker login --username dock101 --password-stdin
+        run: echo '${{ secrets.DOCKERHUB_PASSWORD }}' | sudo docker login --username dock101 --password-stdin
       - name: Pushing base image to docker hub
         run: ./package.sh -e
   
@@ -40,7 +40,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
       - name: DockerHub login
-        run: echo '${{ secrets.DOCKERHUB_PASSWORD }}' | docker login --username dock101 --password-stdin
+        run: echo '${{ secrets.DOCKERHUB_PASSWORD }}' | sudo docker login --username dock101 --password-stdin
       - name: Pushing test image to docker hub
         run: ./package.sh -t
       - name: Deploying to Test Environment
@@ -56,7 +56,7 @@ jobs:
       - name: Checkout to master branch
         uses: actions/checkout@main
       - name: DockerHub login
-        run: echo '${{ secrets.DOCKERHUB_PASSWORD }}' | docker login --username dock101 --password-stdin
+        run: echo '${{ secrets.DOCKERHUB_PASSWORD }}' | sudo docker login --username dock101 --password-stdin
       - name: Pushing prod image to docker hub
         run: ./package.sh -ud
       - name: Deploying into prod environment
