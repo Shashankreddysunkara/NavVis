@@ -28,7 +28,7 @@ elif [ "$2" == "--arm" ]; then
 
   elif [[ "$1" == "-t" || $1 == "--unit-test" ]]; then
     echo -e "\n\n ##############\n\n Executing Unit tests \n\n #############\n\n"
-    sudo docker build -t image_rotate.test:arm -f ./Docker/arm/test.Dockerfile .
+    sudo docker build -t dock101/image_rotate.test:arm -f ./Docker/arm/test.Dockerfile .
     sudo docker push dock101/image_rotate.test:arm
   
   elif [[ "$1" == "-dt" || $1 == "--deploy-test" ]]; then
@@ -48,7 +48,7 @@ elif [ "$2" == "--arm" ]; then
     sudo docker push dock101/image_rotate.env:arm
 
   elif [[ "$1" == "-a" || $1 == "-all" ]]; then
-    sudo docker build -t image_rotate.test -f ./Docker/arm/dev.Dockerfile .
+    sudo docker build -t dock101/image_rotate.test -f ./Docker/arm/dev.Dockerfile .
 
   else
     echo "Invalid command. Try ./run_build_test.sh --help"
@@ -68,7 +68,7 @@ else
 
   elif [[ "$1" == "-t" || $1 == "--unit-test" ]]; then
     echo -e "\n\n ##############\n\n Executing Unit tests \n\n #############\n\n"
-    sudo docker build -t image_rotate.test:x64 -f ./Docker/x64/test.Dockerfile .
+    sudo docker build -t dock101/image_rotate.test:x64 -f ./Docker/x64/test.Dockerfile .
     sudo docker push dock101/image_rotate.test:x64
   
   elif [[ "$1" == "-dt" || $1 == "--deploy-test" ]]; then
@@ -88,7 +88,7 @@ else
     sudo docker push dock101/image_rotate.env:x64
 
   elif [[ "$1" == "-a" || $1 == "-all" ]]; then
-    sudo docker build -t image_rotate.test -f ./Docker/x64/dev.Dockerfile .
+    sudo docker build -t dock101/image_rotate.test -f ./Docker/x64/dev.Dockerfile .
 
   else
     echo "Invalid command. Try ./run_build_test.sh --help"
