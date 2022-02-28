@@ -50,13 +50,13 @@ jobs:
     runs-on: [ubuntu-18.04] 
     steps:
       - name: Checkout to master branch
-        uses: actions/checkout@master
+        uses: actions/checkout@main
       - name: DockerHub login
         run: echo '${{ secrets.DOCKERHUB_PASSWORD }}' | docker login --username dock101 --password-stdin
       - name: Pushing prod image to docker hub
         run: ./package.sh -ud
       - name: Deploying into prod environment
         run: ./package.sh -d
-        if: ${{ github.ref == 'refs/heads/master' }}
+        if: ${{ github.ref == 'refs/heads/main' }}
         needs: dev_x64
         
