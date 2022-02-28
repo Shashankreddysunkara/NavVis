@@ -3,6 +3,8 @@ services:
   image_rotate:
     image: image_rotate.dev:arm
     restart_always: true
+    volumes:
+      - .persistent_volume/:/usr/src/app/build
     stdin_open: true
     tty: true
     network_mode: host

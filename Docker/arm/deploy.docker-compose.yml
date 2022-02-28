@@ -3,4 +3,6 @@ services:
   image_rotate:
     image: dock101/image_rotate:arm
     restart_always: true
+    volumes:
+      - .persistent_volume/:/usr/src/app/build
     network_mode: host
