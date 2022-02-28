@@ -30,7 +30,7 @@ jobs:
       - name: Deploying to development Environment
         run: ./package.sh -dd
         if: ${{ github.ref == 'refs/heads/dev-*' }}
-        needs: build_x64
+    needs: build_x64
 
   test_x64:
     name: Prepare test image for x64
@@ -46,7 +46,7 @@ jobs:
       - name: Deploying to Test Environment
         run: ./package.sh -dt
         if: ${{ github.ref == 'refs/heads/dev-*' }}
-        needs: [build_x64, dev_x64]
+    needs: [build_x64, dev_x64]
 
   deploy_x64:
     name: Updating Production deployment image for x64
@@ -62,5 +62,5 @@ jobs:
       - name: Deploying into prod environment
         run: ./package.sh -d
         if: ${{ github.ref == 'refs/heads/main' }}
-        needs: [build_x64, dev_x64]
+    needs: [build_x64, dev_x64]
         
