@@ -24,12 +24,12 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
       - name: DockerHub login
-        run: echo '${{ secrets.DOCKERHUB_PASSWORD }}' | docker login --username dock101 --password-stdin
+        run: echo '${{ secrets.DOCKERHUB_PASSWORD }}' | sudo docker login --username dock101 --password-stdin
       - name: Pushing dev image to docker hub
         run: sudo chmod 777 ./package.sh && ./package.sh -b
       - name: Deploying to development Environment
         run: sudo chmod 777 ./package.sh && ./package.sh -dd
-        if: ${{ github.ref == 'refs/heads/dev-*' }}
+        if: ${{ github.ref == 'refs/heads/dev-*' }} || ${{ github.ref == 'refs/heads/main' }}
     needs: build_x64
 
   test_x64:
@@ -45,7 +45,7 @@ jobs:
         run: sudo chmod 777 ./package.sh && ./package.sh -t
       - name: Deploying to Test Environment
         run: sudo chmod 777 ./package.sh && ./package.sh -dt
-        if: ${{ github.ref == 'refs/heads/dev-*' }}
+        if: ${{ github.ref == 'refs/heads/dev-*' }} || ${{ github.ref == 'refs/heads/main' }}
     needs: [build_x64, dev_x64]
 
   deploy_x64:
