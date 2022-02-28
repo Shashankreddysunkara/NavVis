@@ -2,7 +2,7 @@ version: '3.4'
 services:
   image_rotate:
     image: image_rotate.dev:x64
-    restart_always: true
+    restart: "always"
     volumes:
       - .persistent_volume/:/usr/src/app/build
     stdin_open: true
