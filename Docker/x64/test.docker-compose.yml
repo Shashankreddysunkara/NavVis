@@ -4,7 +4,7 @@ services:
     container_name: test_image_rotate
     image: dock101/image_rotate.test:x64
     volumes:
-      - .persistent_volume/:/usr/src/app/build
+      - ./:/usr/src/app/build
     stdin_open: true
     tty: true
     network_mode: host

@@ -5,5 +5,5 @@ services:
     image: dock101/image_rotate:x64
     restart: "always"
     volumes:
-      - .persistent_volume/:/usr/src/app/build
+      - ./:/usr/src/app/build
     network_mode: host
