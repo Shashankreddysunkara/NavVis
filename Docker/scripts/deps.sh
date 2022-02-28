@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-
-apt-get update && apt-get install -y \
+echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections
+sudo apt-get update && sudo apt-get install -y \
     cmake \
     coreutils \
     gcc \
     g++ \
-    libopencv-dev
+    libopencv-dev \
+    dialog \
+    apt-utils
