@@ -9,6 +9,5 @@ COPY . /usr/src/app
 # compile source for dev image
 RUN mkdir -p /usr/src/app/build
 WORKDIR /usr/src/app/build
-RUN rm -rf *
 RUN cmake ..
 RUN make
