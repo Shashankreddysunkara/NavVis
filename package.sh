@@ -15,7 +15,7 @@ if [[ $# -eq 0 || $1 == "--help" ]]; then
   echo "      <architecture>: arm - ARM 32bit"
 elif [ "$2" == "--arm" ]; then
   if [[ "$1" == "-b" || $1 == "--build" ]]; then
-    sudo docker build -t image_rotate.dev:arm -f ./Docker/arm/dev.Dockerfile .
+    sudo docker build -t dock101/image_rotate.dev:arm -f ./Docker/arm/dev.Dockerfile .
     sudo docker push dock101/image_rotate.dev:arm
 
   elif [[ "$1" == "-ud" || $1 == "--update-deploy" ]]; then
@@ -55,7 +55,7 @@ elif [ "$2" == "--arm" ]; then
   fi
 else
   if [[ "$1" == "-b" || $1 == "--build" ]]; then
-    sudo docker build -t image_rotate.dev:x64 -f ./Docker/x64/dev.Dockerfile .
+    sudo docker build -t dock101/image_rotate.dev:x64 -f ./Docker/x64/dev.Dockerfile .
     sudo docker push dock101/image_rotate.dev:x64
 
   elif [[ "$1" == "-ud" || $1 == "--update-deploy" ]]; then
