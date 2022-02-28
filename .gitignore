@@ -1,0 +1,6 @@
+# binary
+build
+
+# cmake
+CMakeCache.txt
+CMakeFiles

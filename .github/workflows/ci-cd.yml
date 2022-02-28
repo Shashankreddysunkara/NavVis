@@ -1,0 +1,62 @@
+name: Docker CI / CD
+
+on:
+  push:
+
+jobs:
+  build_x64:
+    name: Prepare base image for x64
+    runs-on: [ubuntu-18.04] 
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: DockerHub login
+        run: echo '${{ secrets.DOCKERHUB_PASSWORD }}' | docker login --username dock101 --password-stdin
+      - name: Pushing base image to docker hub
+        run: ./package.sh -e
+  
+  dev_x64:
+    name: Prepare base image for x64
+    runs-on: [ubuntu-18.04] 
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: DockerHub login
+        run: echo '${{ secrets.DOCKERHUB_PASSWORD }}' | docker login --username dock101 --password-stdin
+      - name: Pushing dev image to docker hub
+        run: ./package.sh -b
+      - name: Deploying to development Environment
+        run: ./package.sh -dd
+        if: ${{ github.ref == 'refs/heads/dev-*' }}
+        needs: build_x64
+
+  test_x64:
+    name: Prepare base image for x64
+    runs-on: [ubuntu-18.04] 
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: DockerHub login
+        run: echo '${{ secrets.DOCKERHUB_PASSWORD }}' | docker login --username dock101 --password-stdin
+      - name: Pushing test image to docker hub
+        run: ./package.sh -t
+      - name: Deploying to Test Environment
+        run: ./package.sh -dt
+        if: ${{ github.ref == 'refs/heads/dev-*' }}
+        needs: dev_x64
+
+  deploy_x64:
+    name: Updating deployment image for x64
+    runs-on: [ubuntu-18.04] 
+    steps:
+      - name: Checkout to master branch
+        uses: actions/checkout@master
+      - name: DockerHub login
+        run: echo '${{ secrets.DOCKERHUB_PASSWORD }}' | docker login --username dock101 --password-stdin
+      - name: Pushing prod image to docker hub
+        run: ./package.sh -ud
+      - name: Deploying into prod environment
+        run: ./package.sh -d
+        if: ${{ github.ref == 'refs/heads/master' }}
+        needs: dev_x64
+        

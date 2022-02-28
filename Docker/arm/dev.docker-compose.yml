@@ -1,0 +1,8 @@
+version: '3.4'
+services:
+  image_rotate:
+    image: image_rotate.dev:arm
+    restart_always: true
+    stdin_open: true
+    tty: true
+    network_mode: host
