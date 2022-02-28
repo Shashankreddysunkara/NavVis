@@ -7,6 +7,7 @@ jobs:
   build_x64:
     name: Prepare base image for x64
     runs-on: [ubuntu-18.04] 
+    environment: dockerhub
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -16,8 +17,9 @@ jobs:
         run: ./package.sh -e
   
   dev_x64:
-    name: Prepare base image for x64
+    name: Prepare development image for x64
     runs-on: [ubuntu-18.04] 
+    environment: dockerhub
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -31,8 +33,9 @@ jobs:
         needs: build_x64
 
   test_x64:
-    name: Prepare base image for x64
+    name: Prepare test image for x64
     runs-on: [ubuntu-18.04] 
+    environment: dockerhub
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -43,11 +46,12 @@ jobs:
       - name: Deploying to Test Environment
         run: ./package.sh -dt
         if: ${{ github.ref == 'refs/heads/dev-*' }}
-        needs: dev_x64
+        needs: [build_x64, dev_x64]
 
   deploy_x64:
-    name: Updating deployment image for x64
+    name: Updating Production deployment image for x64
     runs-on: [ubuntu-18.04] 
+    environment: dockerhub
     steps:
       - name: Checkout to master branch
         uses: actions/checkout@main
@@ -58,5 +62,5 @@ jobs:
       - name: Deploying into prod environment
         run: ./package.sh -d
         if: ${{ github.ref == 'refs/heads/main' }}
-        needs: dev_x64
+        needs: [build_x64, dev_x64]
         
