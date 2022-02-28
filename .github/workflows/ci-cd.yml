@@ -6,7 +6,7 @@ on:
 jobs:
   build_x64:
     name: Prepare base image for x64
-    runs-on: [ubuntu-18.04] 
+    runs-on: self-hosted 
     environment: dockerhub
     steps:
       - name: Checkout repo
@@ -18,7 +18,7 @@ jobs:
   
   dev_x64:
     name: Prepare development image for x64
-    runs-on: [ubuntu-18.04] 
+    runs-on: self-hosted 
     environment: dockerhub
     steps:
       - name: Checkout repo
@@ -34,7 +34,7 @@ jobs:
 
   test_x64:
     name: Prepare test image for x64
-    runs-on: [ubuntu-18.04] 
+    runs-on: self-hosted 
     environment: dockerhub
     steps:
       - name: Checkout repo
@@ -50,7 +50,7 @@ jobs:
 
   deploy_x64:
     name: Updating Production deployment image for x64
-    runs-on: [ubuntu-18.04] 
+    runs-on: self-hosted 
     environment: dockerhub
     steps:
       - name: Checkout to master branch
