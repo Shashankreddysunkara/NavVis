@@ -13,5 +13,4 @@ RUN cmake ..
 RUN make
 
 # execute binary with default container command arguments in array context
-ENTRYPOINT ["./image_rotate"]
-CMD ["../plane.jpg", "plane_out.jpg"]
+ENTRYPOINT ["./image_rotate", "../plane.jpg", "plane_out.jpg"]

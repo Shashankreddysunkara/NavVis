@@ -6,6 +6,4 @@ services:
     restart: "always"
     volumes:
       - ./:/usr/src/app/build
-    stdin_open: true
-    tty: true
     network_mode: host
