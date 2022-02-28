@@ -1,6 +1,7 @@
 version: '3.4'
 services:
   image_rotate:
+    container_name: prod_image_rotate
     image: dock101/image_rotate:arm
     restart: "always"
     volumes:

@@ -1,6 +1,7 @@
 version: '3.4'
 services:
   image_rotate_test:
+    container_name: test_image_rotate
     image: image_rotate.test:x64
     volumes:
       - .persistent_volume/:/usr/src/app/build
