@@ -1,5 +1,6 @@
 # our base image
 FROM dock101/image_rotate.env:arm
+ARG DEBIAN_FRONTEND=noninteractive
 LABEL Maintainer="Shashank@NavVis"
 
 # copy files to container

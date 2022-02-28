@@ -1,5 +1,6 @@
 # our base image
 FROM arm64v8/ubuntu:18.04
+ARG DEBIAN_FRONTEND=noninteractive
 LABEL Maintainer="Shashank@NavVis"
 
 # preparing basic dev environment
