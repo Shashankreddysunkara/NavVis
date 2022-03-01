@@ -3,4 +3,6 @@ services:
   image_rotate:
     image: dock101/image_rotate:arm
     restart_always: true
+    stdin_open: true
+    tty: true
     network_mode: host
