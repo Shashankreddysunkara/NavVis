@@ -7,5 +7,5 @@ services:
     stdin_open: true
     tty: true
     volumes: 
-      - ./home/ubuntu/actions-runner/_work/NavVis/NavVis/:/usr/src/app/build
+      - persistent_volume:/usr/src/app/build
     network_mode: host

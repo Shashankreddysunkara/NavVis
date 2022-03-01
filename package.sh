@@ -64,6 +64,7 @@ else
 
   elif [[ "$1" == "-d" || $1 == "--deploy" ]]; then
     mkdir -p NavVis_data
+    docker volume create --name persistent_volume
     sudo docker-compose -f ./Docker/x64/deploy.docker-compose.yml up -d
 
   elif [[ "$1" == "-t" || $1 == "--unit-test" ]]; then
