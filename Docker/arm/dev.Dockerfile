@@ -4,10 +4,11 @@ ARG DEBIAN_FRONTEND=noninteractive
 LABEL Maintainer="Shashank@NavVis"
 
 # copy files to container
-COPY ./. /usr/src/app
+COPY . /usr/src/app
 
 # compile source for dev image
 RUN mkdir -p /usr/src/app/build
 WORKDIR /usr/src/app/build
+RUN rm -rf *
 RUN cmake ..
 RUN make

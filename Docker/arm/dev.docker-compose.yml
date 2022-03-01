@@ -1,11 +1,8 @@
 version: '3.4'
 services:
   image_rotate:
-    container_name: dev_image_rotate
-    image: dock101/image_rotate.dev:arm
-    restart: "always"
-    volumes:
-      - .persistent_volume/:/usr/src/app/build
+    image: image_rotate.dev:arm
+    restart_always: true
     stdin_open: true
     tty: true
     network_mode: host
