@@ -2,6 +2,7 @@ version: '3.4'
 services:
   image_rotate:
     image: dock101/image_rotate.dev:x64
+    container_name: dev_image_rotate
     restart: "always"
     stdin_open: true
     tty: true
