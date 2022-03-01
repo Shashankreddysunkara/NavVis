@@ -12,3 +12,7 @@ WORKDIR /usr/src/app/build
 RUN rm -rf *
 RUN cmake ..
 RUN make
+
+# execute binary with default container command arguments in array context
+ENTRYPOINT ["./image_rotate"]
+CMD ["../plane.jpg", "plane_out.jpg"]

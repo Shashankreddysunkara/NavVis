@@ -6,5 +6,5 @@ services:
     stdin_open: true
     tty: true
     volumes: 
-      - ./:/usr/src/app/build
+      - ./:/usr/src/app/
     network_mode: host
