@@ -62,4 +62,4 @@ jobs:
       - name: Deploying into prod environment
         run: sudo chmod 777 ./package.sh && ./package.sh -d
         if: ${{ github.ref == 'refs/heads/main' }}
-    needs: [build_x64, dev_x64]       
+    needs: [build_x64, dev_x64, test_x64]       
