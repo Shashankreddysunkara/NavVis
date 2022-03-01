@@ -5,4 +5,6 @@ services:
     restart_always: true
     stdin_open: true
     tty: true
+    volumes: 
+      - ./:/usr/src/app/build
     network_mode: host
