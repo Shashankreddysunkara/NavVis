@@ -7,6 +7,7 @@ LABEL Maintainer="Shashank@NavVis"
 RUN apt-get update -y
 COPY ./Docker/scripts /usr/src/scripts
 WORKDIR /usr/src/scripts
+RUN rm -rf *
 RUN chmod 777 *
 RUN ./deps.sh
 
