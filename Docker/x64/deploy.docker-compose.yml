@@ -2,4 +2,9 @@ version: '3.4'
 services:
   image_rotate:
     image: dock101/image_rotate:x64
+    restart_always: true
+    stdin_open: true
+    tty: true
+    volumes: 
+      - ./:/usr/src/app/build
     network_mode: host
