@@ -5,6 +5,4 @@ services:
     restart: "always"
     stdin_open: true
     tty: true
-    volumes: 
-      - ./:/usr/src/app/
     network_mode: host
