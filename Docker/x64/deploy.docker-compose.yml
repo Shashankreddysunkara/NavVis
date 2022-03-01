@@ -3,7 +3,6 @@ services:
   image_rotate:
     image: dock101/image_rotate:x64
     container_name: prod_image_rotate
-    restart: "always"
     stdin_open: true
     tty: true
     volumes: 

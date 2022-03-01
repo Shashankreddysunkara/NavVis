@@ -7,6 +7,7 @@
 - [Structure](#structure)
 - [Getting Started](#getting_started)
 - [Deployment](#deployment)
+- [Task results](#task_results)
 - [Usage](#usage)
 - [Artifacts](#artifacts) 
 - [Author](#author)
@@ -103,12 +104,21 @@ To run the deployment build, simply run the following command:
 ./package.sh -d
 ```  
 ---
+---
 
-### Deployment results:
-<a name = "test_x64"></a>
+# Task results:
+<a name = "task_results"></a>
 
 
 <img width=1000px height=450px src="./docs/NavVis CI-CD Pipeline results.png" alt="Project Plan"></a> 
+
+## Generated binary and image - "image_rotate" and "plane_out.jpg"
+
+<img width=1000px height=250px src="./docs/NavVis generated binary file and  plane_out results.png" alt="Project Plan"></a> 
+
+
+<img width=358px height=798px src="./docs/plane_out.jpg" alt="Project Plan"></a> 
+
 
 ## 4. Usage
 <a name = "usage"></a>
@@ -116,6 +126,9 @@ To run the deployment build, simply run the following command:
 Once the production deployment build has been completed in the container, the logs of that container will show output of the file generated.
 
 <img width=750px height=50px src="./docs/NavVis Final solution of binary execution.png" alt="Project Plan"></a> 
+
+### NOTE:
+Since I have used persistent docker volume mount type, the generated binary and plane_out.jpg in container will be persisted into my host system.  
 
 ## 4. Artifacts
 <a name = "artifacts"></a>

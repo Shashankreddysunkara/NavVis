@@ -2,9 +2,12 @@ version: '3.4'
 services:
   image_rotate:
     image: dock101/image_rotate:arm
-    restart: "always"
     stdin_open: true
     tty: true
     volumes: 
-      - ./:/usr/src/app/build
+      - persistent_volume:/usr/src/app/build
     network_mode: host
+
+volumes:
+  persistent_volume:
+    external: true
