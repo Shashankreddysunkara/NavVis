@@ -9,3 +9,7 @@ services:
     volumes: 
       - persistent_volume:/usr/src/app/build
     network_mode: host
+
+volumes:
+  persistent_volume:
+    external: true
